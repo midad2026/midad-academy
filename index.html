@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Midad El Idrak Academy | École de langues & Soutien scolaire</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', 'Cairo', sans-serif;
+            background-color: #faf8ff;
+            color: #1e1e2a;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Variables */
+        :root {
+            --violet: #6B2C91;
+            --violet-clair: #8b4fc9;
+            --or: #FFD700;
+            --or-fonce: #e6be00;
+            --gris-clair: #f3f0fc;
+            --ombre: 0 15px 35px rgba(0,0,0,0.05);
+            --transition: all 0.3s ease;
+        }
+
+        /* Animation de base */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-up {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            box-shadow: 0 4px 20px rgba(107, 44, 145, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            flex-wrap: wrap;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--violet), var(--or));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .logo p {
+            font-size: 0.75rem;
+            color: var(--violet);
+            font-weight: 500;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--violet);
+        }
+
+        .lang-switch button {
+            background: var(--violet);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .lang-switch button:hover {
+            background: var(--or);
+            color: var(--violet);
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #fff5e6 0%, #f0e6ff 100%);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            color: var(--violet);
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #444;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--violet);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--violet);
+            color: var(--violet);
+        }
+
+        .btn-outline:hover {
+            background: var(--violet);
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(107,44,145,0.3);
+        }
+
+        /* Services */
+        .services {
+            padding: 70px 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--violet);
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--or);
+            margin: 15px auto 0;
+            border-radius: 4px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--gris-clair);
+            padding: 30px 20px;
+            border-radius: 25px;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: var(--ombre);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            background: white;
+            border-bottom: 4px solid var(--or);
+        }
+
+        .card i {
+            font-size: 3rem;
+            color: var(--violet);
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 1.7rem;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            background: var(--violet);
+            color: white;
+            display: inline-block;
+            padding: 6px 15px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+        }
+
+        /* Formulaire imprimable + Règlement */
+        .form-section {
+            background: var(--gris-clair);
+            padding: 70px 0;
+        }
+
+        .split-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .form-box, .reglement-box {
+            background: white;
+            padding: 30px;
+            border-radius: 30px;
+            box-shadow: var(--ombre);
+        }
+
+        .form-box h3, .reglement-box h3 {
+            color: var(--violet);
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            font-family: inherit;
+        }
+
+        button[type="submit"] {
+            background: var(--violet);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .btn-pdf {
+            background: var(--or);
+            color: var(--violet);
+            margin-top: 20px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .reglement-content {
+            max-height: 400px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+
+        .reglement-content ul {
+            padding-left: 20px;
+        }
+
+        .reglement-content li {
+            margin-bottom: 12px;
+        }
+
+        .cta-online {
+            text-align: center;
+            margin: 50px 0 30px;
+        }
+
+        footer {
+            background: #1e1e2a;
+            color: #ccc;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        footer a {
+            color: var(--or);
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .social-icons a {
+            font-size: 1.8rem;
+            margin: 0 15px;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            color: var(--or);
+        }
+
+        @media (max-width: 800px) {
+            .split-grid {
+                grid-template-columns: 1fr;
+            }
+            .header-flex {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        [lang="ar"] {
+            direction: rtl;
+            text-align: right;
+        }
+
+        .lang-fr, .lang-ar {
+            transition: display 0.2s;
+        }
+
+        .hidden-lang {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-flex">
+        <div class="logo">
+            <h1>MIDAD EL IDRAK ACADEMY</h1>
+            <p>اكاديمية مداد الادراك</p>
+        </div>
+        <div class="nav-links">
+            <a href="#" data-lang-fr>Accueil</a>
+            <a href="#" data-lang-ar>الرئيسية</a>
+            <a href="#" data-lang-fr>Services</a>
+            <a href="#" data-lang-ar>خدماتنا</a>
+            <a href="#" data-lang-fr>Contact</a>
+            <a href="#" data-lang-ar>اتصل بنا</a>
+        </div>
+        <div class="lang-switch">
+            <button id="btn-fr">Français</button>
+            <button id="btn-ar">العربية</button>
+        </div>
+    </div>
+</header>
+
+<main>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="fade-up lang-fr">Apprenez une langue, <span style="color:var(--or)">réussissez votre avenir</span></h1>
+            <h1 class="fade-up lang-ar hidden-lang">تعلم لغة، <span style="color:var(--or)">وحقق نجاح مستقبلك</span></h1>
+            <p class="fade-up delay-1 lang-fr">Cours de langues (Anglais, Français, Arabe) et soutien scolaire personnalisé pour primaire, collège et lycée. Test gratuit !</p>
+            <p class="fade-up delay-1 lang-ar hidden-lang">دورات لغات (إنجليزية، فرنسية، عربية) ودعم مدرسي مخصص للمرحلة الابتدائية، المتوسطة والثانوية. اختبار مجاني!</p>
+            <div class="fade-up delay-2">
+                <a href="#inscription" class="btn lang-fr">📝 Inscription en ligne</a>
+                <a href="#inscription" class="btn lang-ar hidden-lang">📝 تسجيل عبر الإنترنت</a>
+                <a href="#formulaire" class="btn btn-outline lang-fr">📄 Formulaire imprimable</a>
+                <a href="#formulaire" class="btn btn-outline lang-ar hidden-lang">📄 استمارة قابلة للطباعة</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title lang-fr">Nos formations</h2>
+            <h2 class="section-title lang-ar hidden-lang">تكويناتنا</h2>
+            <div class="cards">
+                <div class="card"><i class="fas fa-language"></i><h3>Anglais</h3><p class="lang-fr">Cours tous niveaux, conversation, grammaire, préparation examens.</p><p class="lang-ar hidden-lang">دورات جميع المستويات، محادثة، قواعد، تحضير للامتحانات.</p><div class="price">Tarif à consulter / السعر حسب الاستشارة</div></div>
+                <div class="card"><i class="fas fa-french"></i><h3>Français</h3><p class="lang-fr">Expression écrite/orale, DELF, remise à niveau.</p><p class="lang-ar hidden-lang">تعبير كتابي وشفهي، تحضير لشهادة DELF، تقوية المستوى.</p><div class="price">Tarif à consulter / السعر حسب الاستشارة</div></div>
+                <div class="card"><i class="fas fa-mosque"></i><h3>Arabe</h3><p class="lang-fr">Alphabétisation, grammaire, lecture du Coran, communication.</p><p class="lang-ar hidden-lang">محو الأمية، قواعد، قراءة القرآن، تواصل.</p><div class="price">Tarif à consulter / السعر حسب الاستشارة</div></div>
+                <div class="card"><i class="fas fa-chalkboard-user"></i><h3>Soutien scolaire</h3><p class="lang-fr">Maths, physique, français, anglais – primaire & collège.</p><p class="lang-ar hidden-lang">رياضيات، فيزياء، فرنسية، إنجليزية – ابتدائي ومتوسط.</p><div class="price">Tarif à consulter / السعر حسب الاستشارة</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulaire imprimable + Règlement -->
+    <section class="form-section" id="formulaire">
+        <div class="container split-grid">
+            <div class="form-box" id="printableForm">
+                <h3 class="lang-fr">📋 Formulaire d'inscription imprimable</h3>
+                <h3 class="lang-ar hidden-lang">📋 استمارة التسجيل القابلة للطباعة</h3>
+                <form id="inscriptionForm">
+                    <div class="form-group"><label>Nom & Prénom de l'élève / اسم ولقب التلميذ</label><input type="text" id="nom" required></div>
+                    <div class="form-group"><label>Date de naissance / تاريخ الميلاد</label><input type="date" id="naissance"></div>
+                    <div class="form-group"><label>Niveau scolaire / المستوى الدراسي</label><select id="niveau"><option>Primaire</option><option>Collège</option><option>Lycée</option><option>Adulte</option></select></div>
+                    <div class="form-group"><label>Cours souhaités / الدورات المطلوبة</label><select id="cours"><option>Anglais</option><option>Français</option><option>Arabe</option><option>Soutien scolaire</option></select></div>
+                    <div class="form-group"><label>Téléphone parent / هاتف الولي</label><input type="tel" id="tel" required></div>
+                    <div class="form-group"><label>Email</label><input type="email" id="email"></div>
+                    <div class="form-group"><label>Disponibilités / الأوقات المتاحة</label><textarea rows="2"></textarea></div>
+                    <button type="button" id="generatePDF" class="btn-pdf"><i class="fas fa-print"></i> <span class="lang-fr">Générer PDF / Imprimer</span><span class="lang-ar hidden-lang">إنشاء PDF / طباعة</span></button>
+                </form>
+            </div>
+            <div class="reglement-box">
+                <h3 class="lang-fr">📜 Règlement intérieur</h3>
+                <h3 class="lang-ar hidden-lang">📜 القانون الداخلي</h3>
+                <div class="reglement-content">
+                    <ul>
+                        <li><strong>Art.1:</strong> <span class="lang-fr">Cadre légal – Loi n°08-04.</span><span class="lang-ar hidden-lang">الإطار القانوني - القانون رقم 08-04.</span></li>
+                        <li><strong>Art.2:</strong> <span class="lang-fr">Inscription après dossier complet + paiement.</span><span class="lang-ar hidden-lang">التسجيل بعد اكتمال الملف + الدفع.</span></li>
+                        <li><strong>Art.3:</strong> <span class="lang-fr">Assiduité obligatoire, respect des enseignants.</span><span class="lang-ar hidden-lang">الانتظام إلزامي، احترام الأساتذة.</span></li>
+                        <li><strong>Art.4:</strong> <span class="lang-fr">Interdiction du téléphone en classe, propreté des locaux.</span><span class="lang-ar hidden-lang">ممنوع استعمال الهاتف في القسم، نظافة الأقسام.</span></li>
+                        <li><strong>Art.5:</strong> <span class="lang-fr">Enseignants: équité, respect des programmes officiels.</span><span class="lang-ar hidden-lang">الأساتذة: الإنصاف، احترام البرامج الرسمية.</span></li>
+                        <li><strong>Art.6:</strong> <span class="lang-fr">Évaluations régulières par palier.</span><span class="lang-ar hidden-lang">تقييمات دورية حسب المستوى.</span></li>
+                        <li><strong>Art.7:</strong> <span class="lang-fr">Groupes de soutien (max 10 élèves).</span><span class="lang-ar hidden-lang">مجموعات الدعم (10 تلاميذ كحد أقصى).</span></li>
+                        <li><strong>Art.8:</strong> <span class="lang-fr">Frais non remboursables en cas de désistement.</span><span class="lang-ar hidden-lang">الرسوم غير قابلة للاسترداد في حالة الانسحاب.</span></li>
+                    </ul>
+                    <p class="lang-fr"><em>Signature parent & élève majeur = acceptation.</em></p>
+                    <p class="lang-ar hidden-lang"><em>توقيع ولي الأمر و التلميذ البالغ يعني القبول.</em></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA inscription en ligne -->
+    <div class="cta-online" id="inscription">
+        <div class="container">
+            <a href="https://forms.gle/ton-lien-google-form" target="_blank" class="btn" style="background: var(--or); color: var(--violet);"><i class="fas fa-globe"></i> <span class="lang-fr">📱 S'inscrire en ligne (formulaire Google)</span><span class="lang-ar hidden-lang">📱 سجل عبر الإنترنت (نموذج Google)</span></a>
+            <p class="lang-fr" style="margin-top:15px;">🔗 Remplacez le lien par votre formulaire réel.</p>
+            <p class="lang-ar hidden-lang" style="margin-top:15px;">🔗 استبدل الرابط بنموذج Google الخاص بك.</p>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <p><strong>📍 13 Rue Okli Ali, Sidi Bel Abbes</strong></p>
+        <p>📞 0791031394 | ✉️ midadelidrak.academy@gmail.com</p>
+        <div class="social-icons">
+            <a href="https://facebook.com/اكاديمية-مداد-الادراك" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://instagram.com/midadelidrakacademy" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p style="margin-top:20px;">© 2025 Midad El Idrak Academy | Tous droits réservés</p>
+    </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    // Bilingue
+    const btnFr = document.getElementById('btn-fr');
+    const btnAr = document.getElementById('btn-ar');
+    const frElements = document.querySelectorAll('.lang-fr');
+    const arElements = document.querySelectorAll('.lang-ar');
+
+    function setLanguage(lang) {
+        if (lang === 'fr') {
+            frElements.forEach(el => el.classList.remove('hidden-lang'));
+            arElements.forEach(el => el.classList.add('hidden-lang'));
+            document.documentElement.lang = 'fr';
+            document.body.style.direction = 'ltr';
+        } else {
+            frElements.forEach(el => el.classList.add('hidden-lang'));
+            arElements.forEach(el => el.classList.remove('hidden-lang'));
+            document.documentElement.lang = 'ar';
+            document.body.style.direction = 'rtl';
+        }
+    }
+    btnFr.addEventListener('click', () => setLanguage('fr'));
+    btnAr.addEventListener('click', () => setLanguage('ar'));
+
+    // Génération PDF du formulaire + règlement (version imprimable)
+    document.getElementById('generatePDF').addEventListener('click', function() {
+        const formData = {
+            nom: document.getElementById('nom').value,
+            naissance: document.getElementById('naissance').value,
+            niveau: document.getElementById('niveau').value,
+            cours: document.getElementById('cours').value,
+            tel: document.getElementById('tel').value,
+            email: document.getElementById('email').value,
+        };
+        const reglementHtml = document.querySelector('.reglement-content').innerHTML;
+        const printableHtml = `
+        <html>
+        <head><meta charset="UTF-8"><title>Inscription Midad El Idrak</title><style>body{font-family:sans-serif;padding:30px;} h2{color:#6B2C91;} .info{margin-bottom:20px;} .sign{display:flex;justify-content:space-between;margin-top:40px;}</style></head>
+        <body>
+        <h2>MIDAD EL IDRAK ACADEMY - Fiche d'inscription</h2>
+        <p><strong>Nom & prénom :</strong> ${formData.nom}</p>
+        <p><strong>Date de naissance :</strong> ${formData.naissance}</p>
+        <p><strong>Niveau :</strong> ${formData.niveau}</p>
+        <p><strong>Cours choisi :</strong> ${formData.cours}</p>
+        <p><strong>Téléphone :</strong> ${formData.tel}</p>
+        <p><strong>Email :</strong> ${formData.email}</p>
+        <hr>
+        <h3>Règlement intérieur (extrait) :</h3>
+        ${reglementHtml}
+        <div class="sign"><div>Signature parent : _______________</div><div>Date : ________</div></div>
+        <p>Je soussigné(e) atteste avoir pris connaissance du règlement intérieur complet et l'accepte.</p>
+        </body></html>`;
+        const element = document.createElement('div');
+        element.innerHTML = printableHtml;
+        document.body.appendChild(element);
+        html2pdf().from(element).set({ margin: 0.5, filename: 'inscription_midad.pdf', html2canvas: { scale: 2 }, jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' } }).save().then(() => {
+            document.body.removeChild(element);
+        });
+    });
+</script>
+</body>
+</html>
