@@ -1,551 +1,1196 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Midad El Idrak Academy | École de langues & Soutien scolaire</title>
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Midad El Idrak Academy — أكاديمية مداد الإدراك</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:      #4A0080;
+  --navy2:     #6A0DAD;
+  --gold:      #F5C518;
+  --gold-light:#FFD966;
+  --gold-pale: #FFFBEA;
+  --white:     #FFFFFF;
+  --gray:      #6B7280;
+  --light:     #FAF5FF;
+  --green:     #059669;
+}
 
-        body {
-            font-family: 'Poppins', 'Cairo', sans-serif;
-            background-color: #faf8ff;
-            color: #1e1e2a;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+* { margin:0; padding:0; box-sizing:border-box; }
 
-        /* Variables */
-        :root {
-            --violet: #6B2C91;
-            --violet-clair: #8b4fc9;
-            --or: #FFD700;
-            --or-fonce: #e6be00;
-            --gris-clair: #f3f0fc;
-            --ombre: 0 15px 35px rgba(0,0,0,0.05);
-            --transition: all 0.3s ease;
-        }
+html { scroll-behavior: smooth; }
 
-        /* Animation de base */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+body {
+  font-family: 'Tajawal', sans-serif;
+  color: var(--navy);
+  background: var(--white);
+  overflow-x: hidden;
+}
 
-        .fade-up {
-            animation: fadeInUp 0.8s ease forwards;
-        }
+/* ── FLOATING CONTACT BAR ── */
+.contact-bar {
+  background: var(--navy);
+  color: var(--gold-light);
+  text-align: center;
+  padding: 8px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+.contact-bar a { color: var(--gold-light); text-decoration: none; }
+.contact-bar a:hover { color: white; }
 
-        .delay-1 { animation-delay: 0.1s; }
-        .delay-2 { animation-delay: 0.2s; }
-        .delay-3 { animation-delay: 0.3s; }
+/* ── NAVBAR ── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid var(--gold);
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  box-shadow: 0 2px 20px rgba(10,14,42,0.08);
+}
 
-        /* Layout */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+.logo-wrap { display: flex; flex-direction: column; }
+.logo-main {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--navy);
+  letter-spacing: 1px;
+}
+.logo-main span { color: var(--gold); }
+.logo-ar {
+  font-size: 12px;
+  color: var(--gray);
+  font-family: 'Tajawal', sans-serif;
+}
 
-        /* Header */
-        header {
-            background: white;
-            box-shadow: 0 4px 20px rgba(107, 44, 145, 0.08);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 35px;
+  align-items: center;
+}
+.nav-links a {
+  text-decoration: none;
+  color: var(--navy);
+  font-weight: 500;
+  font-size: 15px;
+  transition: color .2s;
+  position: relative;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0; right: 0;
+  height: 2px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transition: transform .2s;
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-links a:hover::after { transform: scaleX(1); }
 
-        .header-flex {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-            flex-wrap: wrap;
-        }
+.nav-cta {
+  background: var(--gold);
+  color: var(--navy) !important;
+  padding: 10px 22px;
+  border-radius: 50px;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+}
+.nav-cta:hover { background: var(--navy) !important; color: var(--gold) !important; }
+.nav-cta::after { display: none !important; }
 
-        .logo h1 {
-            font-size: 1.5rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--violet), var(--or));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
+/* ── HERO ── */
+.hero {
+  min-height: 88vh;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 50%, #1a2060 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 20px;
+  position: relative;
+  overflow: hidden;
+}
 
-        .logo p {
-            font-size: 0.75rem;
-            color: var(--violet);
-            font-weight: 500;
-        }
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(201,168,76,0.15) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.10) 0%, transparent 50%);
+}
 
-        .nav-links {
-            display: flex;
-            gap: 25px;
-            flex-wrap: wrap;
-        }
+/* Decorative geometric shapes */
+.hero-shape {
+  position: absolute;
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: 50%;
+  animation: pulse-shape 4s ease-in-out infinite;
+}
+.hero-shape:nth-child(1) { width:500px; height:500px; top:-100px; left:-150px; animation-delay:0s; }
+.hero-shape:nth-child(2) { width:300px; height:300px; bottom:-50px; right:-80px; animation-delay:1.5s; }
+.hero-shape:nth-child(3) { width:200px; height:200px; top:30%; right:10%; animation-delay:0.8s; }
 
-        .nav-links a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: var(--transition);
-        }
+@keyframes pulse-shape {
+  0%,100% { opacity:0.3; transform:scale(1); }
+  50%      { opacity:0.6; transform:scale(1.05); }
+}
 
-        .nav-links a:hover {
-            color: var(--violet);
-        }
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 820px;
+  animation: fadeUp 0.9s ease both;
+}
 
-        .lang-switch button {
-            background: var(--violet);
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 30px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: var(--transition);
-        }
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(30px); }
+  to   { opacity:1; transform:translateY(0); }
+}
 
-        .lang-switch button:hover {
-            background: var(--or);
-            color: var(--violet);
-        }
+.hero-badge {
+  display: inline-block;
+  background: rgba(201,168,76,0.15);
+  border: 1px solid rgba(201,168,76,0.4);
+  color: var(--gold-light);
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-bottom: 28px;
+  text-transform: uppercase;
+}
 
-        /* Hero */
-        .hero {
-            background: linear-gradient(135deg, #fff5e6 0%, #f0e6ff 100%);
-            padding: 80px 0;
-            text-align: center;
-        }
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(36px, 5vw, 62px);
+  color: white;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+.hero h1 em {
+  font-style: normal;
+  color: var(--gold);
+}
 
-        .hero h1 {
-            font-size: 2.5rem;
-            color: var(--violet);
-            margin-bottom: 20px;
-        }
+.hero-ar {
+  font-family: 'Tajawal', sans-serif;
+  font-size: 22px;
+  color: var(--gold-light);
+  margin-bottom: 20px;
+  direction: rtl;
+}
 
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
-            color: #444;
-        }
+.hero p {
+  color: rgba(255,255,255,0.75);
+  font-size: 18px;
+  line-height: 1.7;
+  margin-bottom: 40px;
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-        .btn {
-            display: inline-block;
-            background: var(--violet);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 40px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-        }
+.hero-btns {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--violet);
-            color: var(--violet);
-        }
+.btn-primary {
+  background: var(--gold);
+  color: var(--navy);
+  padding: 16px 36px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  transition: all .3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 8px 25px rgba(201,168,76,0.4);
+}
+.btn-primary:hover {
+  background: white;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(201,168,76,0.5);
+}
 
-        .btn-outline:hover {
-            background: var(--violet);
-            color: white;
-        }
+.btn-secondary {
+  background: transparent;
+  color: white;
+  padding: 16px 36px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  border: 2px solid rgba(255,255,255,0.4);
+  transition: all .3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-secondary:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  transform: translateY(-2px);
+}
 
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(107,44,145,0.3);
-        }
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 60px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  flex-wrap: wrap;
+}
+.stat { text-align: center; }
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  color: var(--gold);
+  font-weight: 900;
+  display: block;
+}
+.stat-lbl { color: rgba(255,255,255,0.6); font-size: 13px; margin-top: 4px; }
 
-        /* Services */
-        .services {
-            padding: 70px 0;
-            background: white;
-        }
+/* ── SECTIONS ── */
+section { padding: 90px 40px; }
 
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            color: var(--violet);
-            margin-bottom: 50px;
-            position: relative;
-        }
+.section-tag {
+  text-align: center;
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
 
-        .section-title:after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background: var(--or);
-            margin: 15px auto 0;
-            border-radius: 4px;
-        }
+h2.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 3.5vw, 42px);
+  color: var(--navy);
+  text-align: center;
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+h2.section-title span { color: var(--gold); }
 
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 30px;
-        }
+.section-sub {
+  text-align: center;
+  color: var(--gray);
+  font-size: 17px;
+  margin-bottom: 60px;
+  max-width: 580px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+}
 
-        .card {
-            background: var(--gris-clair);
-            padding: 30px 20px;
-            border-radius: 25px;
-            text-align: center;
-            transition: var(--transition);
-            box-shadow: var(--ombre);
-        }
+/* ── WHY US ── */
+.why {
+  background: var(--light);
+}
 
-        .card:hover {
-            transform: translateY(-10px);
-            background: white;
-            border-bottom: 4px solid var(--or);
-        }
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 28px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
 
-        .card i {
-            font-size: 3rem;
-            color: var(--violet);
-            margin-bottom: 20px;
-        }
+.why-card {
+  background: white;
+  border-radius: 20px;
+  padding: 36px 28px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(10,14,42,0.06);
+  border: 1px solid rgba(201,168,76,0.15);
+  transition: all .3s;
+  position: relative;
+  overflow: hidden;
+}
+.why-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  transform: scaleX(0);
+  transition: transform .3s;
+}
+.why-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(10,14,42,0.12); }
+.why-card:hover::before { transform: scaleX(1); }
 
-        .card h3 {
-            font-size: 1.7rem;
-            margin-bottom: 15px;
-        }
+.why-icon {
+  width: 70px; height: 70px;
+  background: linear-gradient(135deg, var(--navy), var(--navy2));
+  border-radius: 18px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 30px;
+  margin: 0 auto 20px;
+}
+.why-card h3 { font-size: 17px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+.why-card p  { font-size: 14px; color: var(--gray); line-height: 1.6; }
 
-        .price {
-            background: var(--violet);
-            color: white;
-            display: inline-block;
-            padding: 6px 15px;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            margin-top: 15px;
-        }
+/* ── FORMATIONS ── */
+.formations { background: white; }
 
-        /* Formulaire imprimable + Règlement */
-        .form-section {
-            background: var(--gris-clair);
-            padding: 70px 0;
-        }
+.formations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 28px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
-        .split-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-        }
+.formation-card {
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 6px 30px rgba(10,14,42,0.10);
+  transition: all .3s;
+  border: 1px solid rgba(10,14,42,0.06);
+}
+.formation-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(10,14,42,0.15); }
 
-        .form-box, .reglement-box {
-            background: white;
-            padding: 30px;
-            border-radius: 30px;
-            box-shadow: var(--ombre);
-        }
+.formation-header {
+  background: linear-gradient(135deg, var(--navy), var(--navy2));
+  padding: 32px 28px 24px;
+  text-align: center;
+  position: relative;
+}
+.formation-icon { font-size: 44px; margin-bottom: 14px; display: block; }
+.formation-header h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  color: white;
+  margin-bottom: 6px;
+}
+.formation-header .formation-ar { color: var(--gold-light); font-size: 15px; }
 
-        .form-box h3, .reglement-box h3 {
-            color: var(--violet);
-            margin-bottom: 20px;
-            font-size: 1.6rem;
-        }
+.formation-body { padding: 28px; background: white; }
+.formation-body ul { list-style: none; }
+.formation-body li {
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+  color: var(--gray);
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.formation-body li:last-child { border: none; }
+.formation-body li::before { content: '✦'; color: var(--gold); font-size: 10px; flex-shrink: 0; }
 
-        .form-group {
-            margin-bottom: 15px;
-        }
+.formation-footer {
+  padding: 20px 28px;
+  background: var(--light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tarif-label { font-size: 12px; color: var(--gray); }
+.tarif-value {
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 15px;
+}
 
-        label {
-            font-weight: 600;
-            display: block;
-            margin-bottom: 5px;
-        }
+.btn-contact-card {
+  display: block;
+  background: var(--navy);
+  color: var(--gold);
+  text-align: center;
+  padding: 14px;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  transition: all .2s;
+  margin: 0 28px 28px;
+  border-radius: 12px;
+}
+.btn-contact-card:hover { background: var(--gold); color: var(--navy); }
 
-        input, select, textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 12px;
-            font-family: inherit;
-        }
+/* ── NIVEAUX ── */
+.niveaux { background: var(--navy); padding: 70px 40px; }
+.niveaux .section-title { color: white; }
+.niveaux .section-tag { color: var(--gold-light); }
+.niveaux .section-sub { color: rgba(255,255,255,0.6); }
 
-        button[type="submit"] {
-            background: var(--violet);
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 40px;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 10px;
-        }
+.niveaux-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  max-width: 900px;
+  margin: 0 auto;
+}
 
-        .btn-pdf {
-            background: var(--or);
-            color: var(--violet);
-            margin-top: 20px;
-            width: 100%;
-            text-align: center;
-        }
+.niveau-badge {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(201,168,76,0.3);
+  color: white;
+  padding: 12px 22px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all .2s;
+  cursor: default;
+}
+.niveau-badge:hover {
+  background: var(--gold);
+  color: var(--navy);
+  border-color: var(--gold);
+}
+.niveau-badge.highlight {
+  background: rgba(201,168,76,0.2);
+  border-color: var(--gold);
+  color: var(--gold);
+}
 
-        .reglement-content {
-            max-height: 400px;
-            overflow-y: auto;
-            padding-right: 10px;
-        }
+/* ── INSCRIPTION ── */
+.inscription { background: var(--light); }
 
-        .reglement-content ul {
-            padding-left: 20px;
-        }
+.form-wrap {
+  max-width: 700px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 28px;
+  box-shadow: 0 10px 50px rgba(10,14,42,0.10);
+  overflow: hidden;
+}
 
-        .reglement-content li {
-            margin-bottom: 12px;
-        }
+.form-header {
+  background: linear-gradient(135deg, var(--navy), var(--navy2));
+  padding: 36px 40px;
+  text-align: center;
+}
+.form-header h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  color: white;
+  margin-bottom: 8px;
+}
+.form-header p { color: var(--gold-light); font-size: 15px; }
 
-        .cta-online {
-            text-align: center;
-            margin: 50px 0 30px;
-        }
+.form-body { padding: 40px; }
 
-        footer {
-            background: #1e1e2a;
-            color: #ccc;
-            padding: 40px 0;
-            text-align: center;
-        }
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
 
-        footer a {
-            color: var(--or);
-            text-decoration: none;
-            margin: 0 10px;
-        }
+.form-group { margin-bottom: 22px; }
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.form-group label span { color: var(--gray); font-weight: 400; font-size: 12px; letter-spacing: 0; margin-right: 6px; }
 
-        .social-icons a {
-            font-size: 1.8rem;
-            margin: 0 15px;
-            color: white;
-            transition: var(--transition);
-        }
+.form-control {
+  width: 100%;
+  padding: 14px 18px;
+  border: 2px solid #E5E7EB;
+  border-radius: 12px;
+  font-size: 15px;
+  font-family: 'Tajawal', sans-serif;
+  color: var(--navy);
+  background: white;
+  transition: border-color .2s, box-shadow .2s;
+  outline: none;
+}
+.form-control:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 4px rgba(201,168,76,0.12);
+}
+.form-control::placeholder { color: #9CA3AF; }
 
-        .social-icons a:hover {
-            color: var(--or);
-        }
+select.form-control { cursor: pointer; }
 
-        @media (max-width: 800px) {
-            .split-grid {
-                grid-template-columns: 1fr;
-            }
-            .header-flex {
-                flex-direction: column;
-                gap: 15px;
-            }
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-        }
+.btn-submit {
+  width: 100%;
+  padding: 18px;
+  background: linear-gradient(135deg, var(--navy), var(--navy2));
+  color: var(--gold);
+  border: none;
+  border-radius: 14px;
+  font-size: 17px;
+  font-weight: 700;
+  font-family: 'Tajawal', sans-serif;
+  cursor: pointer;
+  transition: all .3s;
+  letter-spacing: 0.5px;
+  margin-top: 10px;
+}
+.btn-submit:hover {
+  background: var(--gold);
+  color: var(--navy);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(201,168,76,0.4);
+}
 
-        [lang="ar"] {
-            direction: rtl;
-            text-align: right;
-        }
+.form-success {
+  display: none;
+  text-align: center;
+  padding: 40px;
+  color: var(--green);
+}
+.form-success .check { font-size: 60px; margin-bottom: 16px; }
+.form-success h4 { font-size: 22px; margin-bottom: 10px; }
+.form-success p { color: var(--gray); }
 
-        .lang-fr, .lang-ar {
-            transition: display 0.2s;
-        }
+/* ── CONTACT ── */
+.contact { background: white; }
 
-        .hidden-lang {
-            display: none;
-        }
-    </style>
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  max-width: 1000px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.contact-info h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  color: var(--navy);
+  margin-bottom: 30px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  margin-bottom: 28px;
+  padding: 22px;
+  background: var(--light);
+  border-radius: 16px;
+  border-left: 4px solid var(--gold);
+  transition: all .2s;
+}
+.contact-item:hover { transform: translateX(5px); }
+.contact-icon {
+  width: 50px; height: 50px;
+  background: var(--navy);
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+.contact-item h4 { font-size: 13px; color: var(--gray); margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px; }
+.contact-item p { font-size: 16px; font-weight: 600; color: var(--navy); }
+.contact-item a { color: var(--navy); text-decoration: none; }
+.contact-item a:hover { color: var(--gold); }
+
+.contact-map {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(10,14,42,0.12);
+  border: 3px solid var(--gold);
+}
+.contact-map iframe {
+  width: 100%;
+  height: 380px;
+  border: none;
+  display: block;
+}
+
+.whatsapp-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: #25D366;
+  color: white;
+  padding: 18px 36px;
+  border-radius: 16px;
+  font-weight: 700;
+  font-size: 17px;
+  text-decoration: none;
+  margin-top: 20px;
+  transition: all .3s;
+  box-shadow: 0 8px 25px rgba(37,211,102,0.3);
+}
+.whatsapp-btn:hover {
+  background: #1ebe5d;
+  transform: translateY(-3px);
+  box-shadow: 0 14px 35px rgba(37,211,102,0.4);
+}
+
+/* ── REGLEMENT ── */
+.reglement {
+  background: var(--light);
+}
+
+.reglement-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.reglement-item {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  box-shadow: 0 2px 15px rgba(10,14,42,0.06);
+  border: 1px solid rgba(201,168,76,0.15);
+  transition: all .2s;
+}
+.reglement-item:hover { border-color: var(--gold); transform: translateY(-3px); }
+.art-num {
+  background: var(--navy);
+  color: var(--gold);
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 900;
+  font-size: 13px;
+  flex-shrink: 0;
+  font-family: 'Playfair Display', serif;
+}
+.reglement-item p { font-size: 14px; color: var(--gray); line-height: 1.6; }
+.reglement-item strong { color: var(--navy); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--navy);
+  color: rgba(255,255,255,0.7);
+  text-align: center;
+  padding: 50px 40px 30px;
+}
+
+.footer-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.footer-ar { color: var(--gold-light); margin-bottom: 20px; font-size: 16px; }
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+.footer-links a {
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color .2s;
+}
+.footer-links a:hover { color: var(--gold); }
+.footer-sep { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 20px 0; }
+.footer-copy { font-size: 13px; color: rgba(255,255,255,0.4); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  section { padding: 60px 20px; }
+  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  .form-row { grid-template-columns: 1fr; }
+  .hero-stats { gap: 30px; }
+  .hero-btns { flex-direction: column; align-items: center; }
+}
+
+/* ── ANIMATIONS on scroll ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
 </head>
 <body>
 
-<header>
-    <div class="container header-flex">
-        <div class="logo">
-            <h1>MIDAD EL IDRAK ACADEMY</h1>
-            <p>اكاديمية مداد الادراك</p>
-        </div>
-        <div class="nav-links">
-            <a href="#" data-lang-fr>Accueil</a>
-            <a href="#" data-lang-ar>الرئيسية</a>
-            <a href="#" data-lang-fr>Services</a>
-            <a href="#" data-lang-ar>خدماتنا</a>
-            <a href="#" data-lang-fr>Contact</a>
-            <a href="#" data-lang-ar>اتصل بنا</a>
-        </div>
-        <div class="lang-switch">
-            <button id="btn-fr">Français</button>
-            <button id="btn-ar">العربية</button>
-        </div>
+<!-- TOP BAR -->
+<div class="contact-bar">
+  <span>📍 04 Rue Okli Ali, Sidi Bel Abbès</span>
+  <span>📞 <a href="tel:+213791031394">0791 031 394</a></span>
+  <span>💬 <a href="https://wa.me/213791031394">WhatsApp</a></span>
+  <span>🔵 <a href="https://www.facebook.com/people/Midad-El-Idrak-Academy/61576551980688/" target="_blank">Facebook</a></span>
+</div>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="logo-wrap">
+    <div class="logo-main">MIDAD <span>EL IDRAK</span> ACADEMY</div>
+    <div class="logo-ar">أكاديمية مداد الإدراك</div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#formations">Formations</a></li>
+    <li><a href="#niveaux">Niveaux</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#inscription" class="nav-cta">✏️ S'inscrire</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-shape"></div>
+  <div class="hero-shape"></div>
+  <div class="hero-shape"></div>
+  <div class="hero-content">
+    <div class="hero-badge">✦ Sidi Bel Abbès — Algérie ✦</div>
+    <h1>Apprenez une langue,<br><em>réussissez votre avenir</em></h1>
+    <p class="hero-ar">أكاديمية مداد الإدراك — حيث يبدأ النجاح</p>
+    <p>Cours de langues (Anglais, Français, Arabe, Espagnol, Allemand) et soutien scolaire personnalisé du primaire jusqu'au baccalauréat.</p>
+    <div class="hero-btns">
+      <a href="#inscription" class="btn-primary">✏️ S'inscrire maintenant</a>
+      <a href="https://wa.me/213791031394" class="btn-secondary">💬 Nous contacter</a>
     </div>
-</header>
-
-<main>
-    <!-- Hero -->
-    <section class="hero">
-        <div class="container">
-            <h1 class="fade-up lang-fr">Apprenez une langue, <span style="color:var(--or)">réussissez votre avenir</span></h1>
-            <h1 class="fade-up lang-ar hidden-lang">تعلم لغة، <span style="color:var(--or)">وحقق نجاح مستقبلك</span></h1>
-            <p class="fade-up delay-1 lang-fr">Cours de langues (Anglais, Français, Arabe) et soutien scolaire personnalisé pour primaire, collège et lycée. Test gratuit !</p>
-            <p class="fade-up delay-1 lang-ar hidden-lang">دورات لغات (إنجليزية، فرنسية، عربية) ودعم مدرسي مخصص للمرحلة الابتدائية، المتوسطة والثانوية. اختبار مجاني!</p>
-            <div class="fade-up delay-2">
-                <a href="#inscription" class="btn lang-fr">📝 Inscription en ligne</a>
-                <a href="#inscription" class="btn lang-ar hidden-lang">📝 تسجيل عبر الإنترنت</a>
-                <a href="#formulaire" class="btn btn-outline lang-fr">📄 Formulaire imprimable</a>
-                <a href="#formulaire" class="btn btn-outline lang-ar hidden-lang">📄 استمارة قابلة للطباعة</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services -->
-    <section class="services" id="services">
-        <div class="container">
-            <h2 class="section-title lang-fr">Nos formations</h2>
-            <h2 class="section-title lang-ar hidden-lang">تكويناتنا</h2>
-            <div class="cards">
-                <div class="card"><i class="fas fa-language"></i><h3>Anglais</h3><p class="lang-fr">Cours tous niveaux, conversation, grammaire, préparation examens.</p><p class="lang-ar hidden-lang">دورات جميع المستويات، محادثة، قواعد، تحضير للامتحانات.</p><div class="price">Tarif à consulter / السعر حسب الاستشارة</div></div>
-                <div class="card"><i class="fas fa-french"></i><h3>Français</h3><p class="lang-fr">Expression écrite/orale, DELF, remise à niveau.</p><p class="lang-ar hidden-lang">تعبير كتابي وشفهي، تحضير لشهادة DELF، تقوية المستوى.</p><div class="price">Tarif à consulter / السعر حسب الاستشارة</div></div>
-                <div class="card"><i class="fas fa-mosque"></i><h3>Arabe</h3><p class="lang-fr">Alphabétisation, grammaire, lecture du Coran, communication.</p><p class="lang-ar hidden-lang">محو الأمية، قواعد، قراءة القرآن، تواصل.</p><div class="price">Tarif à consulter / السعر حسب الاستشارة</div></div>
-                <div class="card"><i class="fas fa-chalkboard-user"></i><h3>Soutien scolaire</h3><p class="lang-fr">Maths, physique, français, anglais – primaire & collège.</p><p class="lang-ar hidden-lang">رياضيات، فيزياء، فرنسية، إنجليزية – ابتدائي ومتوسط.</p><div class="price">Tarif à consulter / السعر حسب الاستشارة</div></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Formulaire imprimable + Règlement -->
-    <section class="form-section" id="formulaire">
-        <div class="container split-grid">
-            <div class="form-box" id="printableForm">
-                <h3 class="lang-fr">📋 Formulaire d'inscription imprimable</h3>
-                <h3 class="lang-ar hidden-lang">📋 استمارة التسجيل القابلة للطباعة</h3>
-                <form id="inscriptionForm">
-                    <div class="form-group"><label>Nom & Prénom de l'élève / اسم ولقب التلميذ</label><input type="text" id="nom" required></div>
-                    <div class="form-group"><label>Date de naissance / تاريخ الميلاد</label><input type="date" id="naissance"></div>
-                    <div class="form-group"><label>Niveau scolaire / المستوى الدراسي</label><select id="niveau"><option>Primaire</option><option>Collège</option><option>Lycée</option><option>Adulte</option></select></div>
-                    <div class="form-group"><label>Cours souhaités / الدورات المطلوبة</label><select id="cours"><option>Anglais</option><option>Français</option><option>Arabe</option><option>Soutien scolaire</option></select></div>
-                    <div class="form-group"><label>Téléphone parent / هاتف الولي</label><input type="tel" id="tel" required></div>
-                    <div class="form-group"><label>Email</label><input type="email" id="email"></div>
-                    <div class="form-group"><label>Disponibilités / الأوقات المتاحة</label><textarea rows="2"></textarea></div>
-                    <button type="button" id="generatePDF" class="btn-pdf"><i class="fas fa-print"></i> <span class="lang-fr">Générer PDF / Imprimer</span><span class="lang-ar hidden-lang">إنشاء PDF / طباعة</span></button>
-                </form>
-            </div>
-            <div class="reglement-box">
-                <h3 class="lang-fr">📜 Règlement intérieur</h3>
-                <h3 class="lang-ar hidden-lang">📜 القانون الداخلي</h3>
-                <div class="reglement-content">
-                    <ul>
-                        <li><strong>Art.1:</strong> <span class="lang-fr">Cadre légal – Loi n°08-04.</span><span class="lang-ar hidden-lang">الإطار القانوني - القانون رقم 08-04.</span></li>
-                        <li><strong>Art.2:</strong> <span class="lang-fr">Inscription après dossier complet + paiement.</span><span class="lang-ar hidden-lang">التسجيل بعد اكتمال الملف + الدفع.</span></li>
-                        <li><strong>Art.3:</strong> <span class="lang-fr">Assiduité obligatoire, respect des enseignants.</span><span class="lang-ar hidden-lang">الانتظام إلزامي، احترام الأساتذة.</span></li>
-                        <li><strong>Art.4:</strong> <span class="lang-fr">Interdiction du téléphone en classe, propreté des locaux.</span><span class="lang-ar hidden-lang">ممنوع استعمال الهاتف في القسم، نظافة الأقسام.</span></li>
-                        <li><strong>Art.5:</strong> <span class="lang-fr">Enseignants: équité, respect des programmes officiels.</span><span class="lang-ar hidden-lang">الأساتذة: الإنصاف، احترام البرامج الرسمية.</span></li>
-                        <li><strong>Art.6:</strong> <span class="lang-fr">Évaluations régulières par palier.</span><span class="lang-ar hidden-lang">تقييمات دورية حسب المستوى.</span></li>
-                        <li><strong>Art.7:</strong> <span class="lang-fr">Groupes de soutien (max 10 élèves).</span><span class="lang-ar hidden-lang">مجموعات الدعم (10 تلاميذ كحد أقصى).</span></li>
-                        <li><strong>Art.8:</strong> <span class="lang-fr">Frais non remboursables en cas de désistement.</span><span class="lang-ar hidden-lang">الرسوم غير قابلة للاسترداد في حالة الانسحاب.</span></li>
-                    </ul>
-                    <p class="lang-fr"><em>Signature parent & élève majeur = acceptation.</em></p>
-                    <p class="lang-ar hidden-lang"><em>توقيع ولي الأمر و التلميذ البالغ يعني القبول.</em></p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA inscription en ligne -->
-    <div class="cta-online" id="inscription">
-        <div class="container">
-            <a href="https://forms.gle/ton-lien-google-form" target="_blank" class="btn" style="background: var(--or); color: var(--violet);"><i class="fas fa-globe"></i> <span class="lang-fr">📱 S'inscrire en ligne (formulaire Google)</span><span class="lang-ar hidden-lang">📱 سجل عبر الإنترنت (نموذج Google)</span></a>
-            <p class="lang-fr" style="margin-top:15px;">🔗 Remplacez le lien par votre formulaire réel.</p>
-            <p class="lang-ar hidden-lang" style="margin-top:15px;">🔗 استبدل الرابط بنموذج Google الخاص بك.</p>
-        </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num">6</span>
+        <div class="stat-lbl">Langues enseignées</div>
+      </div>
+      <div class="stat">
+        <span class="stat-num">4</span>
+        <div class="stat-lbl">Salles de cours</div>
+      </div>
+      <div class="stat">
+        <span class="stat-num">3</span>
+        <div class="stat-lbl">Sections disponibles</div>
+      </div>
+      <div class="stat">
+        <span class="stat-num">∞</span>
+        <div class="stat-lbl">Ambition & Réussite</div>
+      </div>
     </div>
-</main>
+  </div>
+</section>
 
+<!-- WHY US -->
+<section class="why">
+  <div class="section-tag">Pourquoi nous choisir</div>
+  <h2 class="section-title">La différence <span>Midad</span></h2>
+  <p class="section-sub">Une approche pédagogique moderne adaptée à chaque élève</p>
+  <div class="why-grid">
+    <div class="why-card reveal">
+      <div class="why-icon">👨‍🏫</div>
+      <h3>Enseignants qualifiés</h3>
+      <p>Des professeurs spécialisés et expérimentés dans leur domaine.</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-icon">👥</div>
+      <h3>Petits groupes</h3>
+      <p>Maximum 10 élèves par classe pour un suivi personnalisé optimal.</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-icon">📅</div>
+      <h3>Horaires flexibles</h3>
+      <p>Paiement mensuel ou à la séance, selon vos disponibilités.</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-icon">📊</div>
+      <h3>Suivi de progression</h3>
+      <p>Évaluations régulières et rapports de progression pour les parents.</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-icon">🏛️</div>
+      <h3>Salles équipées</h3>
+      <p>4 salles modernes et confortables pour un apprentissage optimal.</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-icon">🎯</div>
+      <h3>Résultats garantis</h3>
+      <p>Méthodes éprouvées axées sur les résultats scolaires concrets.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FORMATIONS -->
+<section class="formations" id="formations">
+  <div class="section-tag">Nos offres</div>
+  <h2 class="section-title">Nos <span>formations</span></h2>
+  <p class="section-sub">Des programmes adaptés à tous les âges et tous les niveaux</p>
+
+  <div class="formations-grid">
+
+    <!-- Pack Enfants -->
+    <div class="formation-card reveal">
+      <div class="formation-header">
+        <span class="formation-icon">👶</span>
+        <h3>Pack Enfants</h3>
+        <div class="formation-ar">قسم الأطفال</div>
+      </div>
+      <div class="formation-body">
+        <ul>
+          <li>De 6 à 11 ans</li>
+          <li>Coran & Éducation islamique</li>
+          <li>Langue arabe — écriture & lecture</li>
+          <li>Français — bases & expression</li>
+          <li>Anglais — initiation ludique</li>
+          <li>Pack mensuel complet</li>
+        </ul>
+      </div>
+      <div class="formation-footer">
+        <div>
+          <div class="tarif-label">Tarif</div>
+          <div class="tarif-value">À consulter</div>
+        </div>
+      </div>
+      <a href="https://wa.me/213791031394?text=Bonjour, je suis intéressé par le Pack Enfants" class="btn-contact-card">💬 Demander les tarifs</a>
+    </div>
+
+    <!-- Soutien Scolaire -->
+    <div class="formation-card reveal">
+      <div class="formation-header">
+        <span class="formation-icon">📚</span>
+        <h3>Soutien Scolaire</h3>
+        <div class="formation-ar">الدعم المدرسي</div>
+      </div>
+      <div class="formation-body">
+        <ul>
+          <li>Du primaire au baccalauréat</li>
+          <li>Mathématiques & Physique</li>
+          <li>Sciences naturelles (SVT)</li>
+          <li>Français, Anglais, Arabe</li>
+          <li>Histoire-Géographie</li>
+          <li>Paiement mensuel ou à la séance</li>
+        </ul>
+      </div>
+      <div class="formation-footer">
+        <div>
+          <div class="tarif-label">Tarif</div>
+          <div class="tarif-value">À consulter</div>
+        </div>
+      </div>
+      <a href="https://wa.me/213791031394?text=Bonjour, je suis intéressé par le Soutien Scolaire" class="btn-contact-card">💬 Demander les tarifs</a>
+    </div>
+
+    <!-- Langues -->
+    <div class="formation-card reveal">
+      <div class="formation-header">
+        <span class="formation-icon">🌍</span>
+        <h3>Cours de Langues</h3>
+        <div class="formation-ar">تعلم اللغات</div>
+      </div>
+      <div class="formation-body">
+        <ul>
+          <li>Français 🇫🇷 — tous niveaux</li>
+          <li>Anglais 🇬🇧 — A1 à C2</li>
+          <li>Arabe classique 📖</li>
+          <li>Espagnol 🇪🇸</li>
+          <li>Allemand 🇩🇪</li>
+          <li>Japonais, Turc & autres</li>
+        </ul>
+      </div>
+      <div class="formation-footer">
+        <div>
+          <div class="tarif-label">Tarif</div>
+          <div class="tarif-value">À consulter</div>
+        </div>
+      </div>
+      <a href="https://wa.me/213791031394?text=Bonjour, je suis intéressé par les Cours de Langues" class="btn-contact-card">💬 Demander les tarifs</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- NIVEAUX -->
+<section class="niveaux" id="niveaux">
+  <div class="section-tag" style="color:var(--gold-light)">Soutien scolaire</div>
+  <h2 class="section-title" style="color:white">Tous les <span>niveaux</span> pris en charge</h2>
+  <p class="section-sub">Du primaire jusqu'au baccalauréat, toutes filières</p>
+  <div class="niveaux-grid">
+    <div class="niveau-badge highlight">1ère AP</div>
+    <div class="niveau-badge highlight">2ème AP</div>
+    <div class="niveau-badge highlight">3ème AP</div>
+    <div class="niveau-badge highlight">4ème AP</div>
+    <div class="niveau-badge highlight">5ème AP</div>
+    <div class="niveau-badge">1ère AM</div>
+    <div class="niveau-badge">2ème AM</div>
+    <div class="niveau-badge">3ème AM</div>
+    <div class="niveau-badge">4ème AM</div>
+    <div class="niveau-badge">1ère AS</div>
+    <div class="niveau-badge">2ème AS — Scientifique</div>
+    <div class="niveau-badge">2ème AS — Littéraire</div>
+    <div class="niveau-badge">2ème AS — Mathématiques</div>
+    <div class="niveau-badge">2ème AS — Gestion</div>
+    <div class="niveau-badge">3ème AS — Scientifique</div>
+    <div class="niveau-badge">3ème AS — Littéraire</div>
+    <div class="niveau-badge">3ème AS — Mathématiques</div>
+    <div class="niveau-badge">3ème AS — Gestion</div>
+  </div>
+</section>
+
+<!-- INSCRIPTION -->
+<section class="inscription" id="inscription">
+  <div class="section-tag">Rejoignez-nous</div>
+  <h2 class="section-title">Formulaire d'<span>inscription</span></h2>
+  <p class="section-sub">Remplissez ce formulaire et nous vous contacterons dans les 24h</p>
+
+  <div class="form-wrap reveal">
+    <div class="form-header">
+      <h3>✏️ Inscription en ligne</h3>
+      <p>التسجيل عبر الإنترنت — Inscription rapide et gratuite</p>
+    </div>
+    <div class="form-body">
+      <form id="inscriptionForm" onsubmit="submitForm(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nom <span>اللقب</span></label>
+            <input type="text" class="form-control" placeholder="Votre nom" required>
+          </div>
+          <div class="form-group">
+            <label>Prénom <span>الاسم</span></label>
+            <input type="text" class="form-control" placeholder="Votre prénom" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Date de naissance <span>تاريخ الميلاد</span></label>
+            <input type="date" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label>Téléphone <span>هاتف الولي</span></label>
+            <input type="tel" class="form-control" placeholder="0XXX XXX XXX" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Section <span>القسم</span></label>
+            <select class="form-control" required>
+              <option value="">Choisir...</option>
+              <option>Pack Enfants (6-11 ans)</option>
+              <option>Soutien Scolaire</option>
+              <option>Cours de Langues</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Niveau scolaire <span>المستوى</span></label>
+            <select class="form-control">
+              <option value="">Choisir...</option>
+              <option>Primaire (1AP - 5AP)</option>
+              <option>Moyen (1AM - 4AM)</option>
+              <option>Lycée (1AS - 3AS)</option>
+              <option>Adulte / Autre</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Cours souhaités <span>الدورة المطلوبة</span></label>
+          <select class="form-control" required>
+            <option value="">Choisir...</option>
+            <option>Pack Enfants complet</option>
+            <option>Mathématiques</option>
+            <option>Physique-Chimie</option>
+            <option>Sciences Naturelles</option>
+            <option>Français</option>
+            <option>Anglais</option>
+            <option>Arabe</option>
+            <option>Histoire-Géographie</option>
+            <option>Espagnol</option>
+            <option>Allemand</option>
+            <option>Autre</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Message <span>رسالة (اختياري)</span></label>
+          <textarea class="form-control" rows="3" placeholder="Des questions ? Des précisions ?..." style="resize:vertical"></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit">
+          ✅ Envoyer ma demande d'inscription — إرسال الطلب
+        </button>
+      </form>
+
+      <div class="form-success" id="formSuccess">
+        <div class="check">✅</div>
+        <h4>Demande envoyée avec succès !</h4>
+        <p>Nous vous contacterons dans les 24h sur votre numéro de téléphone.<br>
+        شكراً ! سنتواصل معك خلال 24 ساعة.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-tag">Nous trouver</div>
+  <h2 class="section-title">Contactez-<span>nous</span></h2>
+  <p class="section-sub">Nous sommes disponibles pour répondre à toutes vos questions</p>
+
+  <div class="contact-grid">
+    <div class="contact-info">
+      <h3>Informations de contact</h3>
+
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div>
+          <h4>Adresse</h4>
+          <p>04 Rue Okli Ali<br>Sidi Bel Abbès, Algérie</p>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div>
+          <h4>Téléphone</h4>
+          <p><a href="tel:+213791031394">0791 031 394</a></p>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon">🔵</div>
+        <div>
+          <h4>Facebook</h4>
+          <p><a href="https://www.facebook.com/people/Midad-El-Idrak-Academy/61576551980688/" target="_blank">Midad El Idrak Academy</a></p>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon">🕐</div>
+        <div>
+          <h4>Horaires</h4>
+          <p>Sam – Jeu : 8h00 – 20h00<br>Vendredi : Fermé</p>
+        </div>
+      </div>
+
+      <a href="https://wa.me/213791031394?text=Bonjour, je souhaite des informations sur Midad El Idrak Academy"
+         class="whatsapp-btn" target="_blank">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        Contacter sur WhatsApp
+      </a>
+    </div>
+
+    <div class="contact-map">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3311.0!2d-0.6400!3d35.1900!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sSidi+Bel+Abbes+Algeria!5e0!3m2!1sfr!2sdz!4v1620000000000"
+        allowfullscreen="" loading="lazy">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- REGLEMENT -->
+<section class="reglement">
+  <div class="section-tag">Règlement</div>
+  <h2 class="section-title">Règlement <span>intérieur</span></h2>
+  <p class="section-sub">Pour le bon fonctionnement de notre académie</p>
+  <div class="reglement-grid">
+    <div class="reglement-item reveal">
+      <div class="art-num">Art.1</div>
+      <p><strong>Cadre légal</strong> — Loi n°08-04 relative à l'éducation nationale.</p>
+    </div>
+    <div class="reglement-item reveal">
+      <div class="art-num">Art.2</div>
+      <p><strong>Inscription</strong> — Après dossier complet et paiement validé.</p>
+    </div>
+    <div class="reglement-item reveal">
+      <div class="art-num">Art.3</div>
+      <p><strong>Assiduité</strong> — Présence obligatoire, respect des enseignants.</p>
+    </div>
+    <div class="reglement-item reveal">
+      <div class="art-num">Art.4</div>
+      <p><strong>Téléphone</strong> — Interdit en classe. Propreté des locaux obligatoire.</p>
+    </div>
+    <div class="reglement-item reveal">
+      <div class="art-num">Art.5</div>
+      <p><strong>Enseignants</strong> — Équité, respect des programmes officiels.</p>
+    </div>
+    <div class="reglement-item reveal">
+      <div class="art-num">Art.6</div>
+      <p><strong>Évaluations</strong> — Régulières par palier pour mesurer la progression.</p>
+    </div>
+    <div class="reglement-item reveal">
+      <div class="art-num">Art.7</div>
+      <p><strong>Groupes</strong> — Maximum 10 élèves par classe.</p>
+    </div>
+    <div class="reglement-item reveal">
+      <div class="art-num">Art.8</div>
+      <p><strong>Frais</strong> — Non remboursables en cas de désistement.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
-    <div class="container">
-        <p><strong>📍 13 Rue Okli Ali, Sidi Bel Abbes</strong></p>
-        <p>📞 0791031394 | ✉️ midadelidrak.academy@gmail.com</p>
-        <div class="social-icons">
-            <a href="https://facebook.com/اكاديمية-مداد-الادراك" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="https://instagram.com/midadelidrakacademy" target="_blank"><i class="fab fa-instagram"></i></a>
-        </div>
-        <p style="margin-top:20px;">© 2025 Midad El Idrak Academy | Tous droits réservés</p>
-    </div>
+  <div class="footer-logo">✦ MIDAD EL IDRAK ACADEMY</div>
+  <div class="footer-ar">أكاديمية مداد الإدراك — سيدي بلعباس</div>
+  <div class="footer-links">
+    <a href="#formations">Formations</a>
+    <a href="#niveaux">Niveaux</a>
+    <a href="#inscription">Inscription</a>
+    <a href="#contact">Contact</a>
+    <a href="https://www.facebook.com/people/Midad-El-Idrak-Academy/61576551980688/" target="_blank">Facebook</a>
+  </div>
+  <hr class="footer-sep">
+  <div class="footer-copy">
+    © 2025 Midad El Idrak Academy — 04 Rue Okli Ali, Sidi Bel Abbès | 0791 031 394
+  </div>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
-    // Bilingue
-    const btnFr = document.getElementById('btn-fr');
-    const btnAr = document.getElementById('btn-ar');
-    const frElements = document.querySelectorAll('.lang-fr');
-    const arElements = document.querySelectorAll('.lang-ar');
-
-    function setLanguage(lang) {
-        if (lang === 'fr') {
-            frElements.forEach(el => el.classList.remove('hidden-lang'));
-            arElements.forEach(el => el.classList.add('hidden-lang'));
-            document.documentElement.lang = 'fr';
-            document.body.style.direction = 'ltr';
-        } else {
-            frElements.forEach(el => el.classList.add('hidden-lang'));
-            arElements.forEach(el => el.classList.remove('hidden-lang'));
-            document.documentElement.lang = 'ar';
-            document.body.style.direction = 'rtl';
-        }
+// Scroll reveal animation
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
     }
-    btnFr.addEventListener('click', () => setLanguage('fr'));
-    btnAr.addEventListener('click', () => setLanguage('ar'));
+  });
+}, { threshold: 0.1 });
 
-    // Génération PDF du formulaire + règlement (version imprimable)
-    document.getElementById('generatePDF').addEventListener('click', function() {
-        const formData = {
-            nom: document.getElementById('nom').value,
-            naissance: document.getElementById('naissance').value,
-            niveau: document.getElementById('niveau').value,
-            cours: document.getElementById('cours').value,
-            tel: document.getElementById('tel').value,
-            email: document.getElementById('email').value,
-        };
-        const reglementHtml = document.querySelector('.reglement-content').innerHTML;
-        const printableHtml = `
-        <html>
-        <head><meta charset="UTF-8"><title>Inscription Midad El Idrak</title><style>body{font-family:sans-serif;padding:30px;} h2{color:#6B2C91;} .info{margin-bottom:20px;} .sign{display:flex;justify-content:space-between;margin-top:40px;}</style></head>
-        <body>
-        <h2>MIDAD EL IDRAK ACADEMY - Fiche d'inscription</h2>
-        <p><strong>Nom & prénom :</strong> ${formData.nom}</p>
-        <p><strong>Date de naissance :</strong> ${formData.naissance}</p>
-        <p><strong>Niveau :</strong> ${formData.niveau}</p>
-        <p><strong>Cours choisi :</strong> ${formData.cours}</p>
-        <p><strong>Téléphone :</strong> ${formData.tel}</p>
-        <p><strong>Email :</strong> ${formData.email}</p>
-        <hr>
-        <h3>Règlement intérieur (extrait) :</h3>
-        ${reglementHtml}
-        <div class="sign"><div>Signature parent : _______________</div><div>Date : ________</div></div>
-        <p>Je soussigné(e) atteste avoir pris connaissance du règlement intérieur complet et l'accepte.</p>
-        </body></html>`;
-        const element = document.createElement('div');
-        element.innerHTML = printableHtml;
-        document.body.appendChild(element);
-        html2pdf().from(element).set({ margin: 0.5, filename: 'inscription_midad.pdf', html2canvas: { scale: 2 }, jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' } }).save().then(() => {
-            document.body.removeChild(element);
-        });
-    });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Form submit
+function submitForm(e) {
+  e.preventDefault();
+  document.getElementById('inscriptionForm').style.display = 'none';
+  document.getElementById('formSuccess').style.display = 'block';
+
+  // Open WhatsApp with form data
+  const wa = "https://wa.me/213791031394?text=" +
+    encodeURIComponent("Bonjour ! Je souhaite m'inscrire à Midad El Idrak Academy. Merci de me contacter.");
+  setTimeout(() => window.open(wa, '_blank'), 1500);
+}
 </script>
 </body>
 </html>
